@@ -1,13 +1,206 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #b5b5b5;
+}
+
+.onKeybtn {
+  background-color: white;
+  color: black;
+  width: 52px;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  line-height: 1.5;
+  margin: 2px;
+  border: 2px solid #b5b5b5;
+}
+
+.onKeybtnPipe {
+  background-color: white;
+  color: black;
+  width: 52px;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  line-height: 1.5;
+  margin: 2px;
+  border: 2px solid #b5b5b5;
+}
+
+.onKeybtnTick {
+  background-color: white;
+  color: black;
+  width: 52px;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  line-height: 1.5;
+  border: 2px solid #b5b5b5;
+  margin: 2px;
+}
+
+.onKeyDelete {
+  width: 119px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  border-bottom: 1px solid #b5b5b5;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  line-height: 1.5;
+  border: 2px solid #b5b5b5;
+  margin: 2px 0;
+}
+
+.onKeyTab {
+  width: 120px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  border: 2px solid #b5b5b5;
+}
+
+.onKeyPipe {
+  margin: 2px 0 2px 0;
+}
+
+.onKeyCaps,
+.onKeybtnCaps {
+  width: 110px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  cursor: pointer;
+  height: 50px;
+  border: 2px solid #b5b5b5;
+}
+
+.onKeyReturn,
+.onKeyCom {
+  width: 105px;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  border: 2px solid #b5b5b5;
+}
+
+.onKeyReturn {
+  width: 122px;
+}
+
+.onKeyShift {
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  border: 2px solid #b5b5b5;
+  margin: 2px 2px 2px 0;
+  width: 140px;
+}
+
+.onKeyShift2 {
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  border: 2px solid #b5b5b5;
+  margin: 2px 0 2px 0;
+  width: 146px;
+}
+
+.onKeybtnAt {
+  background-color: white;
+  color: black;
+  width: 70px;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  line-height: 1.5;
+  margin: 2px;
+  border: 2px solid #b5b5b5;
+}
+
+.onKeybtnSpace {
+  background-color: white;
+  color: black;
+  width: 667px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
+  cursor: pointer;
+  height: 50px;
+  padding: 15px;
+  border: 2px solid #b5b5b5;
+  margin: 2px 0 2px 2px;
+}
+
+.container {
+  max-width: 850px;
+  margin: 150px auto;
+}
+
+.input {
+  padding: 25px;
+  width: 100%;
+  height: 200px;
+  font-family: monospace;
+  border: 20px solid rgba(0, 0, 0, 0.1);
+  background-color: #2e2e2e;
+  color: rgb(172, 169, 169);
+  border-radius: 5px 5px 0 0;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.keypad-container {
+  width: 100%;
+  background-color: #ececec;
+  border-radius: 5px;
+  font-size: 20px;
+  border: 1px solid #b5b5b5;
+}
+
+::placeholder {
+  font-size: 1.2rem;
+  color: gray;
 }
