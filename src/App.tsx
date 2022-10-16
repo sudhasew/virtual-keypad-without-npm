@@ -5,7 +5,7 @@ import { Keypad } from "./Keypad";
 function App() {
   const [code, setCode] = useState("");
   const [cursorPosition, setCursorPosition] = useState(0);
-
+  const [delVisit, setDelVisit] = useState(0);
   function onKeyUp(letter: string) {
     setCode((prev) => prev + letter);
     console.log("curs pos", cursorPosition);
@@ -26,12 +26,22 @@ function App() {
 
   const onKeyDelete = (letter: string) => {
     console.log("letter is", letter);
-    if (letter === "delete" && cursorPosition != 0) {
+    console.log("cursor pos", cursorPosition);
+    console.log("delVist ", delVisit);
+    if (delVisit > 0 && cursorPosition === 0) {
+      setCode(code);
+    } else if (cursorPosition !== 0) {
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
+      console.log("textBeforeCursorPosition", textBeforeCursorPosition);
       let textAfterDel = textBeforeCursorPosition.slice(0, -1);
+      setCursorPosition(cursorPosition - 1);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
+      console.log("textAfterCursorPosition", textAfterCursorPosition);
       setCode(textAfterDel + textAfterCursorPosition);
+    } else if (delVisit === 0 && cursorPosition === 0) {
+      setCode((prev) => prev.slice(0, -1));
     }
+    setDelVisit(delVisit + 1);
   };
 
   const onKeyTab = (letter: string) => {
