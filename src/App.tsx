@@ -2,21 +2,10 @@ import React, { useState } from "react";
 
 import { Keypad } from "./Keypad";
 
-function App() {
+const App = () => {
   const [code, setCode] = useState("");
   const [cursorPosition, setCursorPosition] = useState(0);
-  const [delVisit, setDelVisit] = useState(0);
-  function onKeyUp(letter: string) {
-    setCode((prev) => prev + letter);
-    console.log("curs pos", cursorPosition);
-    if (cursorPosition != 0) {
-      let textBeforeCursorPosition = code.substring(0, cursorPosition);
-      console.log("textBeforeCursorPosition", textBeforeCursorPosition);
-      let textAfterCursorPosition = code.substring(cursorPosition, code.length);
-      setCode(textBeforeCursorPosition + letter + textAfterCursorPosition);
-      console.log("after setcode ", code);
-    }
-  }
+  const [textB4Cursor, setTextB4Cursor] = useState(false);
 
   const getCursorPosition = (e: any) => {
     let cursorPosition = e.target.selectionStart;
@@ -24,29 +13,42 @@ function App() {
     console.log("cursorPosition", cursorPosition);
   };
 
-  const onKeyDelete = (letter: string) => {
-    console.log("letter is", letter);
-    console.log("cursor pos", cursorPosition);
-    console.log("delVist ", delVisit);
-    if (delVisit > 0 && cursorPosition === 0) {
-      setCode(code);
-    } else if (cursorPosition !== 0) {
+  const onKeyUp = (letter: string) => {
+    setCode((prev) => prev + letter);
+    console.log("letter here is", letter);
+    if (cursorPosition !== 0) {
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
       console.log("textBeforeCursorPosition", textBeforeCursorPosition);
+      let textAfterCursorPosition = code.substring(cursorPosition, code.length);
+      setCode(textBeforeCursorPosition + letter + textAfterCursorPosition);
+      console.log("after setcode ", code.length);
+    }
+  };
+
+  const onKeyDelete = (letter: string) => {
+    console.log("letter is", letter);
+    console.log("cur pos in 33 is", cursorPosition);
+    let textBeforeCursorPosition = "";
+    console.log("textB4Cursor flag", textB4Cursor);
+    if ((cursorPosition !== 0 && !textB4Cursor) || cursorPosition === 1) {
+      textBeforeCursorPosition = code.substring(0, cursorPosition);
+      if (textBeforeCursorPosition.length !== 0) {
+        setTextB4Cursor(true);
+      }
       let textAfterDel = textBeforeCursorPosition.slice(0, -1);
-      setCursorPosition(cursorPosition - 1);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
       console.log("textAfterCursorPosition", textAfterCursorPosition);
+      setCursorPosition(cursorPosition - 1);
       setCode(textAfterDel + textAfterCursorPosition);
-    } else if (delVisit === 0 && cursorPosition === 0) {
+    } else if (cursorPosition === 0 && !textB4Cursor) {
+      console.log("I am here");
       setCode((prev) => prev.slice(0, -1));
     }
-    setDelVisit(delVisit + 1);
   };
 
   const onKeyTab = (letter: string) => {
     console.log("letter is", letter);
-    if (letter === "tab" && cursorPosition != 0) {
+    if (letter === "tab" && cursorPosition !== 0) {
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
       setCode(textBeforeCursorPosition + "        " + textAfterCursorPosition);
@@ -55,7 +57,7 @@ function App() {
 
   const onKeySpace = (letter: string) => {
     console.log("letter is", letter);
-    if (letter === " " && cursorPosition != 0) {
+    if (letter === " " && cursorPosition !== 0) {
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
       setCode(textBeforeCursorPosition + " " + textAfterCursorPosition);
@@ -82,6 +84,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
