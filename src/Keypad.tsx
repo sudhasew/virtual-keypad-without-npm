@@ -31,7 +31,7 @@ export function Keypad({ onKeyUp, onKeyDelete, onKeySpace, onKeyTab }: Props) {
     <form onSubmit={handleSubmit} className="keypad-container">
       <span>
         {keyToggle ? (
-          <button className="onKeybtn" onClick={(e) => onKeyUp("~")}>
+          <button className="onKeybtn" onClick={() => onKeyUp("~")}>
             ~
           </button>
         ) : (
@@ -156,17 +156,7 @@ export function Keypad({ onKeyUp, onKeyDelete, onKeySpace, onKeyTab }: Props) {
           onChange={(e) => e.target.value}
         />
       )}
-      {/* <span>
-        {keyToggle ? (
-          <button className="onKeybtn" onClick={() => onKeyUp(")")}>
-            {")"}
-          </button>
-        ) : (
-          <button className="onKeybtn" onClick={() => onKeyUp("0")}>
-            0
-          </button>
-        )}
-      </span> */}
+
       <span>
         {keyToggle ? (
           <button className="onKeybtn" onClick={() => onKeyUp("_")}>
@@ -196,26 +186,12 @@ export function Keypad({ onKeyUp, onKeyDelete, onKeySpace, onKeyTab }: Props) {
         value="delete"
         onClick={() => onKeyDelete("delete")}
       />
-
-      {/* onKeyDown=
-      {(e) => {
-        e.currentTarget.selectionStart = cursorState.cursorPosition;
-        e.currentTarget.selectionEnd = cursorState.cursorPosition;
-      }}
-      onChange=
-      {(event) => {
-        event.persist();
-        const caretStart = event.target.selectionStart;
-        const caretEnd = event.target.selectionEnd;
-        // update the state and reset the caret
-        updateCursorState();
-        event.target.setSelectionRange(caretStart, caretEnd);
-      }} */}
-
       <br />
+
       <button className="onKeyTab" onClick={() => onKeyTab("tab")}>
         tab
       </button>
+
       <span>
         {keyToggle ? (
           <button className="onKeybtn" onClick={() => onKeyUp("Q")}>
@@ -238,6 +214,7 @@ export function Keypad({ onKeyUp, onKeyDelete, onKeySpace, onKeyTab }: Props) {
           </button>
         )}
       </span>
+
       <span>
         {keyToggle ? (
           <button className="onKeybtn" onClick={() => onKeyUp("E")}>

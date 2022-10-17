@@ -54,7 +54,7 @@ body {
 }
 
 .onKeyDelete {
-  width: 119px;
+  width: 115px;
   background-color: white;
   color: black;
   font-size: 20px;
@@ -70,7 +70,7 @@ body {
 }
 
 .onKeyTab {
-  width: 120px;
+  width: 116px;
   background-color: white;
   color: black;
   font-size: 20px;
@@ -88,7 +88,7 @@ body {
 
 .onKeyCaps,
 .onKeybtnCaps {
-  width: 110px;
+  width: 125px;
   background-color: white;
   color: black;
   font-size: 20px;
@@ -101,7 +101,7 @@ body {
 
 .onKeyReturn,
 .onKeyCom {
-  width: 105px;
+  width: 101px;
   background-color: white;
   color: black;
   font-size: 20px;
@@ -114,7 +114,7 @@ body {
 }
 
 .onKeyReturn {
-  width: 122px;
+  width: 100px;
 }
 
 .onKeyShift {
@@ -128,7 +128,7 @@ body {
   height: 50px;
   border: 2px solid #b5b5b5;
   margin: 2px 2px 2px 0;
-  width: 140px;
+  width: 137px;
 }
 
 .onKeyShift2 {
@@ -141,8 +141,8 @@ body {
   cursor: pointer;
   height: 50px;
   border: 2px solid #b5b5b5;
-  margin: 2px 0 2px 0;
-  width: 146px;
+  margin: 2px 0;
+  width: 141px;
 }
 
 .onKeybtnAt {
@@ -163,7 +163,7 @@ body {
 .onKeybtnSpace {
   background-color: white;
   color: black;
-  width: 667px;
+  width: 663px;
   border-radius: 5px;
   box-shadow: 0 0 3px -1px rgb(0 0 0 / 30%);
   cursor: pointer;
@@ -198,6 +198,7 @@ body {
   border-radius: 5px;
   font-size: 20px;
   border: 1px solid #b5b5b5;
+  padding: 1px;
 }
 
 ::placeholder {
