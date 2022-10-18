@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { isCallChain } from "typescript";
 
 import { Keypad } from "./Keypad";
 
@@ -10,16 +11,18 @@ const App = () => {
   const getCursorPosition = (e: any) => {
     let cursorPosition = e.target.selectionStart;
     setCursorPosition(cursorPosition);
+    console.log(cursorPosition);
   };
 
   const onKeyUp = (letter: string) => {
     setCode((prev) => prev + letter);
     if (cursorPosition !== 0) {
-      setCursorPosition(cursorPosition + 1);
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
-      // console.log("textBeforeCursorPosition", textBeforeCursorPosition);
+      console.log("textBeforeCursorPosition", textBeforeCursorPosition);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
+      console.log("textAfterCursorPosition onKeyUp", textAfterCursorPosition);
       setCode(textBeforeCursorPosition + letter + textAfterCursorPosition);
+      setCursorPosition(cursorPosition + 1);
     }
   };
 
@@ -50,13 +53,29 @@ const App = () => {
   };
 
   const onKeySpace = (letter: string) => {
-    if (letter === "" || cursorPosition >= 0) {
+    if (letter === " " || cursorPosition > 0) {
       alert("You pressed the space with 1");
-      console.log(cursorPosition + code.length);
+      setCursorPosition(cursorPosition);
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
-      setCursorPosition(cursorPosition);
-      setCode(textAfterCursorPosition + " " + textBeforeCursorPosition);
+      // setCode(textAfterCursorPosition + " " + textBeforeCursorPosition);
+      if (textBeforeCursorPosition.length !== 0) {
+        setCode(textBeforeCursorPosition + " " + textAfterCursorPosition);
+        setCursorPosition(cursorPosition + 1);
+        console.log(
+          "textBeforeCursorPosition.length !== 0",
+          textBeforeCursorPosition + " " + textAfterCursorPosition
+        );
+      }
+      // else if (textAfterCursorPosition.length !== 0) {
+      //   setCode(" " + code);
+      //   console.log("textAfterCursorPosition", textAfterCursorPosition);
+      // }
+      console.log("cursor", code.length);
+    } else if (cursorPosition >= 0) {
+      setCursorPosition(cursorPosition + 1);
+      setCode(" " + code);
+      console.log("cursorPosition === 0", cursorPosition + 1);
     }
   };
 
