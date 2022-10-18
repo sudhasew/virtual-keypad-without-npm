@@ -10,7 +10,6 @@ const App = () => {
   const getCursorPosition = (e: any) => {
     let cursorPosition = e.target.selectionStart;
     setCursorPosition(cursorPosition);
-    console.log("cursorPosition", cursorPosition);
   };
 
   const onKeyUp = (letter: string) => {
@@ -18,10 +17,9 @@ const App = () => {
     if (cursorPosition !== 0) {
       setCursorPosition(cursorPosition + 1);
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
-      console.log("textBeforeCursorPosition", textBeforeCursorPosition);
+      // console.log("textBeforeCursorPosition", textBeforeCursorPosition);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
       setCode(textBeforeCursorPosition + letter + textAfterCursorPosition);
-      console.log("after setcode ", code.length);
     }
   };
 
@@ -42,19 +40,18 @@ const App = () => {
   };
 
   const onKeyTab = (letter: string) => {
-    console.log("letter is", letter);
     if (letter === "tab" && cursorPosition >= 0) {
-      alert("You pressed the tab");
+      alert(`You pressed the tab with 9 "spaces"`);
       setCursorPosition(cursorPosition + 9);
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
-      setCode(textBeforeCursorPosition + "        " + textAfterCursorPosition);
+      setCode(textBeforeCursorPosition + "         " + textAfterCursorPosition);
     }
   };
 
   const onKeySpace = (letter: string) => {
-    console.log("letter is", letter);
     if (letter === " " && cursorPosition >= 0) {
+      alert("You pressed the space");
       setCursorPosition(cursorPosition + 1);
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
