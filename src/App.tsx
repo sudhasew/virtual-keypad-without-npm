@@ -50,12 +50,13 @@ const App = () => {
   };
 
   const onKeySpace = (letter: string) => {
-    if (letter === " " && cursorPosition >= 0) {
-      alert("You pressed the space");
-      setCursorPosition(cursorPosition + 1);
+    if (letter === "" || cursorPosition >= 0) {
+      alert("You pressed the space with 1");
+      console.log(cursorPosition + code.length);
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
-      setCode(textBeforeCursorPosition + " " + textAfterCursorPosition);
+      setCursorPosition(cursorPosition);
+      setCode(textAfterCursorPosition + " " + textBeforeCursorPosition);
     }
   };
 
