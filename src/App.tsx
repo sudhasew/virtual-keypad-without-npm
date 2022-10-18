@@ -53,29 +53,15 @@ const App = () => {
   };
 
   const onKeySpace = (letter: string) => {
-    if (letter === " " || cursorPosition > 0) {
-      alert("You pressed the space with 1");
-      setCursorPosition(cursorPosition);
+    if (letter === "space" || cursorPosition >= 0) {
       let textBeforeCursorPosition = code.substring(0, cursorPosition);
+      console.log("textBeforeCursorPosition", textBeforeCursorPosition);
       let textAfterCursorPosition = code.substring(cursorPosition, code.length);
-      // setCode(textAfterCursorPosition + " " + textBeforeCursorPosition);
-      if (textBeforeCursorPosition.length !== 0) {
-        setCode(textBeforeCursorPosition + " " + textAfterCursorPosition);
-        setCursorPosition(cursorPosition + 1);
-        console.log(
-          "textBeforeCursorPosition.length !== 0",
-          textBeforeCursorPosition + " " + textAfterCursorPosition
-        );
-      }
-      // else if (textAfterCursorPosition.length !== 0) {
-      //   setCode(" " + code);
-      //   console.log("textAfterCursorPosition", textAfterCursorPosition);
-      // }
-      console.log("cursor", code.length);
-    } else if (cursorPosition >= 0) {
+      console.log("textAfterCursorPosition", textAfterCursorPosition);
+      setCode(textBeforeCursorPosition + " " + textAfterCursorPosition);
       setCursorPosition(cursorPosition + 1);
+    } else if (cursorPosition === 0) {
       setCode(" " + code);
-      console.log("cursorPosition === 0", cursorPosition + 1);
     }
   };
 

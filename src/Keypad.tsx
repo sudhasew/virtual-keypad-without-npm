@@ -611,7 +611,7 @@ export function Keypad({ onKeyUp, onKeyDelete, onKeySpace, onKeyTab }: Props) {
         <span>
           <button
             className="onKeybtnSpace"
-            onClick={() => onKeySpace("")}
+            onClick={() => onKeySpace("space")}
           ></button>
         </span>
       </div>
